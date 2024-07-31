@@ -3,6 +3,7 @@ const board = document.querySelectorAll(".cell");
 const modal = document.getElementById("modal");
 const optX = document.getElementById("btn-x");
 const optO = document.getElementById("btn-o");
+const resetButton = document.getElementById("reset-button");
 const resultMessage = document.createElement("div"); // Crear un elemento para mostrar el resultado
 
 document.body.appendChild(resultMessage); // Añadir el elemento al cuerpo del documento
@@ -34,9 +35,11 @@ board.forEach((cell, index) => {
       boardGame[index] = user;
       if (checkWin(user)) {
         resultMessage.textContent = `¡${user} ha ganado!`;
+        resultMessage.classList.add("show");
         isGameOver = true;
       } else if (boardGame.every((cell) => cell !== "")) {
         resultMessage.textContent = "¡Empate!";
+        resultMessage.classList.add("show");
         isGameOver = true;
       } else {
         machineMove();
@@ -60,6 +63,7 @@ function machineMove() {
 
   if (checkWin(machine)) {
     resultMessage.textContent = `¡${machine} ha ganado!`;
+    resultMessage.classList.add("show");
     isGameOver = true;
   }
 }
