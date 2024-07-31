@@ -90,8 +90,9 @@ function resetGame() {
   board.forEach((cell) => (cell.textContent = ""));
   isGameOver = false;
   resultMessage.textContent = "";
+  resultMessage.classList.remove("show");
   modal.style.display = "block";
 }
 
-// Asignar el evento para reiniciar el juego cuando se haga clic en el mensaje de resultado
-resultMessage.addEventListener("click", resetGame);
+// Asignar el evento para reiniciar el juego cuando se haga clic en el botón de reiniciar
+resetButton.addEventListener("click", resetGame);
